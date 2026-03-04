@@ -1,66 +1,114 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Central de Vídeos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            padding: 40px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Central de Vídeos</title>
 
-        .container {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
+<style>
+:root {
+    --primary: #2563eb;
+    --bg: #343b4b;
+    --card: #ffffff;
+    --text: #000000;
+    --muted: #2e333b;
+}
 
-        .card {
-            background: white;
-            width: 300px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .card h2 {
-            background-color: #3b6db3;
-            color: white;
-            margin: 0;
-            padding: 12px;
-            font-size: 18px;
-            text-align: center;
-        }
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: rgb(0, 0, 0);
+}
 
-        .card ul {
-            list-style: none;
-            padding: 15px;
-            margin: 0;
-        }
+header {
+    background: var(--primary);
+    color: white;
+    padding: 20px 40px;
+}
 
-        .card ul li {
-            margin-bottom: 8px;
-        }
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
 
-        .card ul li a {
-            text-decoration: none;
-            color: #000;
-        }
+.search-box {
+    margin-top: 15px;
+}
 
-        .card ul li a:hover {
-            text-decoration: underline;
-            color: #3b6db3;
-        }
-    </style>
+.search-box input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.container {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    transition: 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video-list li {
+    margin-bottom: 10px;
+}
+
+.video-list a {
+    text-decoration: none;
+    color: var(--muted);
+    transition: 0.2s;
+}
+.video-list a:hover {
+    color: rgb(3, 0, 185);
+}
+</style>
 </head>
+
 <body>
+
+<header>
+    <div class="search-box">
+        <input type="text" placeholder="Buscar vídeo" onkeyup="filterVideos(this.value)">
+    </div>
+</header>
 
 <div class="container">
 
     <div class="card">
         <h2>Vídeos ERP</h2>
-        <ul>
+        <ul class="video-list">
             <li><a href="https://youtu.be/qrmMRd6XKwY">Entrada de produtos</a></li>
             <li><a href="https://youtu.be/skrDNEWPlGk">MDFE Tutorial</a></li>
             <li><a href="https://youtu.be/kJsmFax1aZI">Emissão tela mercado</a></li>
@@ -72,44 +120,80 @@
         </ul>
     </div>
 
-
-    <div class="card">
+        <div class="card">
         <h2>Vídeos ERP antigos</h2>
-        <ul>
+        <ul class="video-list">
             <li><a href="https://youtu.be/Dt-5dmLO4kk">Etiqueta cod. Barras</a></li>
             <li><a href="https://youtu.be/eMJ5oVrQWbw">Venda fiscal CPF</a></li>
             <li><a href="https://youtu.be/83sbHrqK9vc">Venda Mobile</a></li>
-            <li><a href="https://youtu.be/kDyww7ll7Fk">Troca produtos e varias formas pagamento mercado</a></li>
-            <li><a href="https://www.youtube.com/watch?v=6E0_bINl288">Gerenciar contas a pagar e cheque</a></li>
+            <li><a href="https://youtu.be/kDyww7ll7Fk">Troca produtos e várias formas pagamento mercado</a></li>
+            <li><a href="https://youtu.be/6E0_bINl288">Gerenciar contas a pagar e cheque</a></li>
             <li><a href="https://youtu.be/ORenI0BYtT8">Fechamento de caixa</a></li>
             <li><a href="https://youtu.be/EmyQBqdlvj0">Nota fiscal de vendas</a></li>
-            <li><a href="https://youtu.be/X71yUenhU3s">Varias formas pagamentos venda</a></li>
+            <li><a href="https://youtu.be/X71yUenhU3s">Várias formas pagamentos venda</a></li>
             <li><a href="https://youtu.be/XQct4FBwW80">Apresentação ERP</a></li>
-            <li><a href="https://youtu.be/QOCK8NMXzZ0">Cadastro, edição duplicação e exclusão de item</a></li>
+            <li><a href="https://youtu.be/QOCK8NMXzZ0">Cadastro, edição, duplicação e exclusão de item</a></li>
         </ul>
     </div>
 
     <div class="card">
         <h2>Vídeos Gourmet</h2>
-        <ul>
+        <ul class="video-list">
+            <li><a href="https://youtu.be/H2zAx3fn6ck">Integração Gourmet + Delivery</a></li>
+            <li><a href="https://youtu.be/t1lX5CdUaQY">Divisão de contas Gourmet</a></li>
+            <li><a href="https://youtu.be/1MEGuiv6emA">Faturamento de mesa</a></li>
+            <li><a href="https://youtu.be/PQaYkHn3g4U">Divisão de sabores na Pizza</a></li>
         </ul>
     </div>
 
-    <div class="card">
+     <div class="card">
         <h2>Vídeos Gourmet antigos</h2>
-        <ul>
+        <ul class="video-list">
+            <li><a href="https://youtu.be/m1_Bh7T0UKw">Cadastro de cliente</a></li>
+            <li><a href="https://youtu.be/5toCTzj74yc">Cadastro de produto</a></li>
+            <li><a href="https://youtu.be/JH0kMR34G7o">Gerenciamento de mesas</a></li>
+            <li><a href="https://youtu.be/H_amKc7ZmL8">Fechamento de caixa</a></li>
+            <li><a href="https://youtu.be/FgLJ7Fe7VX4">Apresentação Gourmet</a></li>
+            <li><a href="https://youtu.be/Qs0Y_CbJzwc">Liberar mesas</a></li>
+            <li><a href="https://youtu.be/9HrEjjn5-58">Inativar produto Gourmet</a></li>
         </ul>
     </div>
 
+         <div class="card">
+        <h2>Vídeos Delivery</h2>
+        <ul class="video-list">
+            <li><a href="https://youtu.be/hcmq8QjXASA">Tutorial completo Delivery</a></li>
+            <li><a href="https://youtu.be/nGSed8zpS18">Utilização do Delivery pelo Link</a></li>
+            <li><a href="https://youtu.be/Fw-YrKLUkoc">Criação de conta Delivery APP</a></li>
+        </ul>
+    </div>
+
+
     <div class="card">
-        <h2>Outros vídeos</h2>
-        <ul>
-            <li><a href="https://youtu.be/Kf4GrGANpok">Instalação Ultra Viewer</a></li>
-            <li><a href="https://youtu.be/fjK7E5GIckQ">Instalação Team Viewer</a></li>
+        <h2>Outros</h2>
+        <ul class="video-list">
+            <li><a href="https://youtu.be/hcmq8QjXASA">Instalação Ultra Viewer</a></li>
+            <li><a href="https://youtu.be/nGSed8zpS18">Instalação Team Viewer</a></li>
+            <li><a href="https://youtu.be/bU4K-niYE_o"> Tutorial sistema de agendamento completo</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLwwF3l9sVHaQU8--I5p83Ms5vmNcnWI2O">ERP Playlist</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLwwF3l9sVHaRJ_aNiDd-6CQ39rDSVkfYs">Gourmet Playlist</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLwwF3l9sVHaSnaWpKeaC6WMJieroUJtbO">Delivery Playlist</a></li>
         </ul>
     </div>
 
 </div>
+
+<script>
+function filterVideos(search) {
+    search = search.toLowerCase();
+    const links = document.querySelectorAll(".video-list li");
+
+    links.forEach(li => {
+        const text = li.textContent.toLowerCase();
+        li.style.display = text.includes(search) ? "" : "none";
+    });
+}
+</script>
 
 </body>
 </html>
